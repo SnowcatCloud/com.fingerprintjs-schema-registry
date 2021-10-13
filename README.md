@@ -30,7 +30,7 @@ Refer to the [FingerprintJS Javascript Agent docs](https://dev.fingerprintjs.com
 
 Once the visitorId is available, you can fire the Snowplow event with the corresponding fingerprint schema.
 
-```
+```js
   // Creates a context with the fingerprintJS schema
   var Context = [
       {
