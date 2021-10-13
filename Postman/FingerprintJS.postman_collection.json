@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "87d197aa-937e-48e7-ac23-45be3c7a1420",
+		"name": "FingerprintJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fingerprint",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"confidence\": {\n      \"score\": 0.999\n  },\n  \"meta\": {\n    \"version\": \"v1.1.136+46f71e4\"\n  },\n  \"requestId\": \"1628295897273.myo0Ju\",\n  \"visitorFound\": true, \n  \"visitorId\": \"nmnY3NEe0lGJc4tzh5KM\"\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/com.snowplowanalytics.iglu/v1?aid=fingerprint&p=app&schema=iglu%3Acom.fingerprintjs%2Ffingerprint%2Fjsonschema%2F1-0-0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"com.snowplowanalytics.iglu",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "aid",
+							"value": "fingerprint"
+						},
+						{
+							"key": "p",
+							"value": "app"
+						},
+						{
+							"key": "schema",
+							"value": "iglu%3Acom.fingerprintjs%2Ffingerprint%2Fjsonschema%2F1-0-0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"// Example with a plain string URL",
+							"pm.sendRequest('http://localhost:9090/micro/all', (error, response) => {",
+							"   ",
+							"    console.log(pm.collectionVariables.get(\"good\"));",
+							"",
+							"  if (error) {",
+							"    console.log(error);",
+							"  } else {",
+							"  console.log(response);",
+							"  }",
+							"",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"requestId\": \"1628297827668.lx99dH\",\n    \"visitorId\": \"nmnY3NEe0lGJc4tzh5KM\",\n    \"browserDetails\": {\n      \"browserName\": \"Chrome\",\n      \"browserMajorVersion\": \"92\",\n      \"browserFullVersion\": \"92.0.4515\",\n      \"os\": \"Mac OS X\",\n      \"osVersion\": \"10.15.7\",\n      \"device\": \"Other\",\n      \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36\",\n      \"botProbability\": 0\n    },\n    \"incognito\": false,\n    \"ip\": \"75.80.110.186\",\n    \"ipLocation\": {\n      \"accuracyRadius\": 5,\n      \"latitude\": 32.8425,\n      \"longitude\": -117.2484,\n      \"postalCode\": \"92037\",\n      \"timezone\": \"America/Los_Angeles\",\n      \"city\": {\n        \"name\": \"La Jolla\"\n      },\n      \"continent\": {\n        \"code\": \"NA\",\n        \"name\": \"North America\"\n      },\n      \"country\": {\n        \"code\": \"US\",\n        \"name\": \"United States\"\n      },\n      \"subdivisions\": [\n        {\n          \"isoCode\": \"CA\",\n          \"name\": \"California\"\n        }\n      ],\n      \"organization\": {}\n    },\n    \"time\": \"\",\n    \"timestamp\": 1628297827668,\n    \"clientReferrer\": \"https://www.snowcatcloud.com/\",\n    \"url\": \"https://www.snowcatcloud.com/\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/com.snowplowanalytics.iglu/v1?aid=fingerprint&p=app&schema=iglu%3Acom.fingerprintjs%2Fwebhook%2Fjsonschema%2F1-0-0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"com.snowplowanalytics.iglu",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "aid",
+							"value": "fingerprint"
+						},
+						{
+							"key": "p",
+							"value": "app"
+						},
+						{
+							"key": "schema",
+							"value": "iglu%3Acom.fingerprintjs%2Fwebhook%2Fjsonschema%2F1-0-0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Micro Reset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/micro/reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"micro",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Micro All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/micro/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"micro",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Micro Bad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/micro/bad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"micro",
+						"bad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Micro Good",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/micro/bad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"micro",
+						"bad"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

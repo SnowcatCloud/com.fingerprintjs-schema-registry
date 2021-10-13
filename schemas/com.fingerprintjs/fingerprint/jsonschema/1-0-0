@@ -1,0 +1,75 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "FingerprintJS Visitor Schema",
+  "self": {
+    "vendor": "com.fingerprintjs",
+    "name": "fingerprint",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "visitorId": {
+      "description": "The visitorId",
+      "type": [
+        "string"
+      ],
+      "maxLength": 255
+    },
+    "visitorFound": {
+      "description": "If visitor was found",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "requestId": {
+      "description": "The unique requestId",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255
+    },
+    "confidence": {
+      "description": "Confidence object",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "score": {
+          "description": "The confidence score attributed to the user",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "meta": {
+      "description": "Meta object",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "version": {
+          "description": "Version",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        }
+      }
+    }
+  },
+  "minProperties": 1,
+  "required": [
+    "visitorId"
+  ],
+  "additionalProperties": true
+}

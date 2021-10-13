@@ -1,0 +1,308 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "FingerprintJS Webhook Schema",
+  "self": {
+    "vendor": "com.fingerprintjs",
+    "name": "webhook",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "description": "The unique requestId",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255
+    },
+    "visitorId": {
+      "description": "The visitorId",
+      "type": [
+        "string"
+      ],
+      "maxLength": 255
+    },
+    "browserDetails": {
+      "description": "Browser details object",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "browserName": {
+          "description": "The browser name",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "browserMajorVersion": {
+          "description": "The browser major version",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "browserFullVersion": {
+          "description": "The browser full version",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "os": {
+          "description": "The OS name",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "osVersion": {
+          "description": "The OS version",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "device": {
+          "description": "The device classification",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "userAgent": {
+          "description": "The user agent",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "botProbability": {
+          "description": "The browser OS version",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "incognito": {
+      "description": "Browser in incognito mode",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "ip": {
+      "description": "IP address",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255
+    },
+    "ipLocation": {
+      "description": "IP location object",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "accuracyRadius": {
+          "description": "The accuracy radius",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "latitude": {
+          "description": "The latitude",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": -2147483647,
+          "maximum": 2147483647
+        },
+        "longitude": {
+          "description": "The longitude",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": -2147483647,
+          "maximum": 2147483647
+        },
+        "postalCode": {
+          "description": "The postal code",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "timezone": {
+          "description": "The timezone",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "city": {
+          "description": "City object",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "name": {
+              "description": "The city name",
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 255
+            }
+          }
+        },
+        "continent": {
+          "description": "The continent object",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "code": {
+              "description": "The continent code",
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 255
+            },
+            "name": {
+              "description": "The city name",
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 255
+            }
+          }
+        },
+        "country": {
+          "description": "The country object",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "code": {
+              "description": "The continent code",
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 255
+            },
+            "name": {
+              "description": "The city name",
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 255
+            }
+          }
+        },
+        "subdivisions": {
+          "description": "Subdivisions",
+          "type": [
+            "array",
+            "null"
+          ],
+          "minItems": 0,
+          "items": {
+            "description": "Geo subdivisions",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "isoCode": {
+                "description": "Geoname id",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 255
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "The subdivision name",
+                "maxLength": 255
+              }
+            }
+          }
+        },
+        "time": {
+          "description": "The time",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "timestamp": {
+          "description": "The timestamp",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "clientReferrer": {
+          "description": "The client referrer",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        },
+        "url": {
+          "description": "The URL",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 255
+        }
+      }
+    }
+  },
+  "minProperties": 2,
+  "required": [
+    "requestId",
+    "visitorId"
+  ],
+  "additionalProperties": true
+}
