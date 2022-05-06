@@ -1,4 +1,4 @@
-# Snowplow / SnowcatCloud Integration
+# Snowplow / SnowcatCloud FingerprintJS Integration
 
 ### com.fingerprintjs schema registry
 
